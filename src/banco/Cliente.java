@@ -2,6 +2,8 @@ package banco;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 // Definición de la clase Cliente.
 public class Cliente {
     // Variable de instancia privada para almacenar una lista de cuentas. Se inicializa con un tamaño máximo de 10 cuentas.
@@ -72,6 +74,21 @@ public class Cliente {
     // Método público para establecer un valor al número de celular del cliente.
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+    public void eliminarCuenta(String nodoCuenta) {
+        Cuenta cuentaAEliminar = null;
+        for (Cuenta cuenta : listaDeCuentas) {
+            if (cuenta.getNodeCuenta().equals(nodoCuenta)) {
+                cuentaAEliminar = cuenta;
+                break; // Salir del bucle una vez que se encuentra la cuenta
+            }
+        }
+        if (cuentaAEliminar != null) {
+            listaDeCuentas.remove(cuentaAEliminar);
+            JOptionPane.showMessageDialog(null, "Cuenta eliminada con éxito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Cuenta no encontrada.");
+        }
     }
 
     // Método público para proporcionar una representación en cadena del cliente y sus cuentas asociadas.

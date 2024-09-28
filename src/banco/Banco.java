@@ -1,6 +1,8 @@
 package banco;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 class Banco {
     // Variable de instancia privada para almacenar una lista dinámica de clientes.
     private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
@@ -31,5 +33,20 @@ class Banco {
     // Método para obtener el número de clientes registrados.
     public int getNumeroClientes() {
         return listaDeClientes.size();  // El tamaño de la lista se obtiene directamente
+    }
+    public void eliminarCliente(String nombre) {
+        Cliente clienteAEliminar = null;
+        for (Cliente cliente : listaDeClientes) {
+            if (cliente.getNombre().equals(nombre)) {
+                clienteAEliminar = cliente;
+                break; // Salir del bucle una vez que se encuentra el cliente
+            }
+        }
+        if (clienteAEliminar != null) {
+            listaDeClientes.remove(clienteAEliminar);
+            JOptionPane.showMessageDialog(null, "Cliente eliminado con éxito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente no encontrado.");
+        }
     }
 }
