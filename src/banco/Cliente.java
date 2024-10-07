@@ -24,6 +24,7 @@ public class Cliente {
     }
 
     // Método público para obtener una cuenta por su número de cuenta (nodoCuenta).
+    //Usando for mejorado
     public Cuenta getCuenta(String nodoCuenta) {
         for (Cuenta cuenta : listaDeCuentas) {
             if (cuenta.getNodeCuenta().equals(nodoCuenta)) {

@@ -2,6 +2,7 @@ package banco;
 import javax.swing.JOptionPane;
 import java.util.Date;
 
+
 // Definición de la clase Main. Contiene el punto de entrada principal para la aplicación.
 public class Main {
     public static void main(String[] args) {

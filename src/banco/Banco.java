@@ -1,9 +1,10 @@
 package banco;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
-class Banco {
+// Clase Banco
+public class Banco {
     // Variable de instancia privada para almacenar una lista dinámica de clientes.
     private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
     
@@ -34,16 +35,22 @@ class Banco {
     public int getNumeroClientes() {
         return listaDeClientes.size();  // El tamaño de la lista se obtiene directamente
     }
+
+    // Método para eliminar un cliente por nombre utilizando Iterator
     public void eliminarCliente(String nombre) {
-        Cliente clienteAEliminar = null;
-        for (Cliente cliente : listaDeClientes) {
+        Iterator<Cliente> iterator = listaDeClientes.iterator();
+        boolean encontrado = false;
+        //utilizando hasNext
+        while (iterator.hasNext()) {
+            Cliente cliente = iterator.next();
             if (cliente.getNombre().equals(nombre)) {
-                clienteAEliminar = cliente;
-                break; // Salir del bucle una vez que se encuentra el cliente
+                iterator.remove(); // Elimina el cliente encontrado
+                encontrado = true;
+                break; // Salir del bucle una vez que se elimina el cliente
             }
         }
-        if (clienteAEliminar != null) {
-            listaDeClientes.remove(clienteAEliminar);
+
+        if (encontrado) {
             JOptionPane.showMessageDialog(null, "Cliente eliminado con éxito.");
         } else {
             JOptionPane.showMessageDialog(null, "Cliente no encontrado.");
