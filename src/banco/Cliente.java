@@ -1,7 +1,6 @@
 package banco;
 
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 // Definición de la clase Cliente.

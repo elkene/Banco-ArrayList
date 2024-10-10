@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 // Clase Banco
 public class Banco {
     // Variable de instancia privada para almacenar una lista dinámica de clientes.
-    private ArrayList<Cliente> listaDeClientes = new ArrayList<>();
+    private final ArrayList<Cliente> listaDeClientes = new ArrayList<>();
     
     // Método para agregar un cliente a la lista del banco.
     public void agregarCliente(Cliente cliente) {
